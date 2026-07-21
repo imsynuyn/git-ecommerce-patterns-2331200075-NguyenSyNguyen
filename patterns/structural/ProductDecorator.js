@@ -21,10 +21,12 @@ class GiftWrapDecorator extends ProductDecorator {
 
     getPrice() {
         // TODO: Return the product's original price + a $5 gift wrap fee.
+        return this.product.getPrice() + 5;
     }
 
     getDescription() {
         // TODO: Return the product's original description + ", gift wrapped".
+        return this.product.getDescription() + ", gift wrapped";
     }
 }
 
@@ -36,24 +38,26 @@ class ExtendedWarrantyDecorator extends ProductDecorator {
 
     getPrice() {
         // TODO: Return the product's original price + a $20 warranty fee.
+        return this.product.getPrice() + 20;
     }
 
     getDescription() {
         // TODO: Return the product's original description + ", with extended warranty".
+        return this.product.getDescription() + ", with extended warranty";
     }
 }
 
 // We need a base Product class with the same interface to decorate it
 class BaseProduct {
     constructor(name, price) {
-        this._name = name;
-        this._price = price;
+        this.name = name;
+        this.price = price;
     }
     getPrice() {
-        return this._price;
+        return this.price;
     }
     getDescription() {
-        return this._name;
+        return this.name;
     }
 }
 

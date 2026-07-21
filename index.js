@@ -1,6 +1,6 @@
 import { CartService } from "./patterns/creational/CartService.js";
 import { ProductFactory } from "./patterns/creational/ProductFactory.js";
-import { GiftWrapDecorator, ExtendedWarrantyDecorator } from "./patterns/structural/ProductDecorator.js";
+import { BaseProduct, GiftWrapDecorator, ExtendedWarrantyDecorator } from "./patterns/structural/ProductDecorator.js";
 import { CheckoutFacade } from "./patterns/structural/CheckoutFacade.js";
 import { ShippingCalculator, FlatRateStrategy, WeightBasedStrategy } from "./patterns/behavioral/ShippingStrategy.js";
 import { AddToCartCommand, CommandInvoker } from "./patterns/behavioral/Command.js";
@@ -29,15 +29,15 @@ laptop.describe();
 console.log("\n");
 
 // --- Part 3A: Decorator Pattern ---
-// console.log("--- 3A: Decorator Pattern ---");
-// let myBook = factory.createProduct('book', { title: 'Design Patterns', price: 45 });
-// // Wrap the book with a gift wrap decorator
-// myBook = new GiftWrapDecorator(myBook);
-// // Wrap it again with an extended warranty decorator
-// myBook = new ExtendedWarrantyDecorator(myBook);
-// console.log(`Final Price: $${myBook.getPrice()}`);
-// console.log(`Final Description: ${myBook.getDescription()}`);
-// console.log("\n");
+console.log("--- 3A: Decorator Pattern ---");
+let myBook = new BaseProduct("Design Patterns", 45);
+// Wrap the book with a gift wrap decorator
+myBook = new GiftWrapDecorator(myBook);
+// Wrap it again with an extended warranty decorator
+myBook = new ExtendedWarrantyDecorator(myBook);
+console.log(`Final Price: $${myBook.getPrice()}`);
+console.log(`Final Description: ${myBook.getDescription()}`);
+console.log("\n");
 
 // --- Part 3B: Facade Pattern ---
 // console.log("--- 3B: Facade Pattern ---");
